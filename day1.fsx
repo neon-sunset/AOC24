@@ -14,7 +14,7 @@ let part2 lhs rhs =
     lhs
     |> Seq.countBy id
     |> Seq.map (fun (k, factor) ->
-        let freq = rhs |> Array.filter (fun x -> x = k) |> Array.length
+        let freq = rhs |> Array.filter ((=) k) |> Array.length
         k, (factor * freq))
     |> Seq.sumBy (fun (k, factor) -> k * factor)
 
